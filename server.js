@@ -1,10 +1,12 @@
 http = require('http')
 fs = require('fs')
+path = require('path')
 
 PORT = process.env.PORT || 8000
 
 http.createServer( (req,res) => {
 
+    
     if( req.url == '/api'){
 
         random = Math.random();
@@ -19,8 +21,8 @@ http.createServer( (req,res) => {
         res.end()
     }
 
-    else if( req.url == '/front'){
-        fs.readFile('./public/front.html', (err,data) => {
+    if( req.url == '/coin'){
+        fs.readFile('./public/coin.html', (err,data) => {
             res.writeHead(200, {'content-type': 'text/html'})
             res.write(data)
             res.end()
@@ -30,12 +32,15 @@ http.createServer( (req,res) => {
     }
 
 
-    fs.readFile('./public/index.html', (err,data) => {
+    if( req.url = '/'){
+        
+        fs.readFile(`./public/index.html`, (err,data) => {
         res.writeHead(200, {'Content-Type': 'text/html'})
         res.write(data)
         res.end()
 
-    })
-    
+        })
+    }
+
     
 }).listen(PORT, ()=> console.log(`Listen on port: ${PORT}`))
