@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>FrontEnd</title>
+    </head>
+    <body>
+        <h1>Flip The Coin</h1>
+
+        <button onClick="flipCoin()">
+            Flip Coin
+        </button>
+
+        <input id="random_number" >
+        <input id="coin" >
+
+        
+    </body>
+
+
+    <script>
+
+        function flipCoin(){
+
+            fetch("/api")
+            .then( res => res.json() )
+            .then( data => {
+                document.querySelector("#random_number").value = data.random
+                document.querySelector("#coin").value = data.flag
+
+             })
+        
+        }
+        
+    </script>
+    
+</html>

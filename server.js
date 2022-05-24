@@ -19,6 +19,16 @@ http.createServer( (req,res) => {
         res.end()
     }
 
+    else if( req.url == '/front'){
+        fs.readFile('./public/front.html', (err,data) => {
+            res.writeHead(200, {'content-type': 'text/html'})
+            res.write(data)
+            res.end()
+
+        })
+
+    }
+
 
     fs.readFile('./public/index.html', (err,data) => {
         res.writeHead(200, {'Content-Type': 'text/html'})
