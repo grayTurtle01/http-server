@@ -2,16 +2,37 @@
     <head>
         <meta charset="utf-8">
         <title>FrontEnd</title>
+
+        <style>
+
+            body{
+                text-align: center;
+        
+            }
+
+            #big-coin{
+                font-size: 150px;
+            }
+            
+        </style>
+        
     </head>
     <body>
         <h1>Flip The Coin</h1>
 
-        <button onClick="flipCoin()">
+
+        <div>
+            <button onClick="flipCoin()">
             Flip Coin
-        </button>
+            </button>
+        </div>
+        <br>
+        <br>
 
         <input id="random_number" >
         <input id="coin" >
+
+        <h1 id="big-coin"></h1>
 
         
     </body>
@@ -26,6 +47,7 @@
             .then( data => {
                 document.querySelector("#random_number").value = data.random
                 document.querySelector("#coin").value = data.flag
+                document.querySelector("#big-coin").innerText = data.flag
 
              })
         
