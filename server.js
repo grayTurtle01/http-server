@@ -16,7 +16,8 @@ http.createServer( (req,res) => {
         obj = {random: random, flag: flag}
         json = JSON.stringify(obj)
 
-        res.writeHead(200, {'Content-Type': 'application/json'})
+        res.writeHead(200, {'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*'})
         res.write(json)
         res.end()
     }
@@ -30,7 +31,6 @@ http.createServer( (req,res) => {
         })
 
     }
-
 
     if( req.url = '/'){
         
