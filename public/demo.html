@@ -3,18 +3,7 @@
         <meta charset="utf-8">
         <title>FrontEnd</title>
 
-        <style>
-
-            body{
-                text-align: center;
-        
-            }
-
-            #big-coin{
-                font-size: 150px;
-            }
-            
-        </style>
+        <link rel="stylesheet" href="./styles.css">
         
     </head>
     <body>
@@ -29,8 +18,7 @@
         <br>
         <br>
 
-        <input id="random_number" >
-        <input id="coin" >
+        <h2 id="random_number" ></h2> 
 
         <h1 id="big-coin"></h1>
 
@@ -45,8 +33,7 @@
             fetch("/api")
             .then( res => res.json() )
             .then( data => {
-                document.querySelector("#random_number").value = data.random
-                document.querySelector("#coin").value = data.flag
+                document.querySelector("#random_number").innerText = data.random
                 document.querySelector("#big-coin").innerText = data.flag
 
              })
